@@ -1,28 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/Assignment2.csproj": {}
+    "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Assignment2.csproj": {}
   },
   "projects": {
-    "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/Assignment2.csproj": {
+    "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Assignment2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/Assignment2.csproj",
+        "projectUniqueName": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Assignment2.csproj",
         "projectName": "Assignment2",
-        "projectPath": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/Assignment2.csproj",
-        "packagesPath": "/Users/wenhanliu/.nuget/packages/",
-        "outputPath": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/obj/",
+        "projectPath": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Assignment2.csproj",
+        "packagesPath": "C:\\Users\\12206\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
+        "fallbackFolders": [
+          "D:\\program_tools\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/wenhanliu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\12206\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0-android",
           "net8.0-ios",
-          "net8.0-maccatalyst"
+          "net8.0-maccatalyst",
+          "net8.0-windows10.0.19041.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,12 +45,21 @@
           "net8.0-maccatalyst17.2": {
             "targetAlias": "net8.0-maccatalyst",
             "projectReferences": {}
+          },
+          "net8.0-windows10.0.19041": {
+            "targetAlias": "net8.0-windows10.0.19041.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -68,7 +85,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )",
+              "version": "[8.0.6, )",
               "autoReferenced": true
             }
           },
@@ -91,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-ios17.2": {
           "targetAlias": "net8.0-ios",
@@ -115,7 +132,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )",
+              "version": "[8.0.6, )",
               "autoReferenced": true
             }
           },
@@ -138,7 +155,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         },
         "net8.0-maccatalyst17.2": {
           "targetAlias": "net8.0-maccatalyst",
@@ -162,7 +179,7 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )",
+              "version": "[8.0.6, )",
               "autoReferenced": true
             }
           },
@@ -186,7 +203,54 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        },
+        "net8.0-windows10.0.19041": {
+          "targetAlias": "net8.0-windows10.0.19041.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebView.Maui": {
+              "target": "Package",
+              "version": "[8.0.40, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Maui.Controls": {
+              "target": "Package",
+              "version": "[8.0.40, )"
+            },
+            "Microsoft.Maui.Controls.Compatibility": {
+              "target": "Package",
+              "version": "[8.0.40, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Windows.SDK.NET.Ref",
+              "version": "[10.0.19041.31, 10.0.19041.31]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.Windows.SDK.NET.Ref": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -202,10 +266,13 @@
         "android-x86": {
           "#import": []
         },
-        "iossimulator-arm64": {
+        "iossimulator-x64": {
           "#import": []
         },
-        "maccatalyst-arm64": {
+        "maccatalyst-x64": {
+          "#import": []
+        },
+        "win10-x64": {
           "#import": []
         }
       }

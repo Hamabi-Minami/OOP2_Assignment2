@@ -1,4 +1,5 @@
 ﻿@page "/flight"
+@using Assignment2.Models;
 
 <h1 class="text-center">Flight Finder</h1>
 <p role="status">Current count: @currentCount</p>
@@ -6,37 +7,142 @@
 <div class="row">
     <div class="col">
         <p>From</p>
-        <input placeholder="Any"/>
+        @* <input placeholder="Any" @bind-value="selectedFrom" /> *@
+
+        @if(allFrom == null)
+        {
+            <input placeholder="Loading" />
+        }
+        else
+        {
+            <select class="form-control" @bind="selectedFrom">
+                <option value="">-- Departure --</option>
+                @foreach (var from in allFrom)
+                {
+                    <option>@from</option>
+                }
+            </select>
+        }
     </div>
     <div class="col">
         <p>To</p>
-        <input placeholder="Any"/>
+        @* <input placeholder="Any" @bind-value="selectedTo" /> *@
+        @if (allTo == null)
+        {
+            <input placeholder="Loading" />
+        }
+        else
+        {
+            <select class="form-control" @bind="selectedTo">
+                <option value="">-- Destination --</option>
+                @foreach (var to in allTo)
+                {
+                    <option>@to</option>
+                }
+            </select>
+        }
     </div>
     <div class="col">
         <p>Day</p>
-        <input placeholder="Any"/>
+        @* <input placeholder="Any" @bind-value="selectedDay"/> *@
+        @if (allDay == null)
+        {
+            <input placeholder="Loading" />
+        }
+        else
+        {
+            <select class="form-control" @bind="selectedDay">
+                <option value="">-- Select a Date --</option>
+                @foreach (var day in allDay)
+                {
+                    <option>@day</option>
+                }
+            </select>
+        }
     </div>
     <div class="col d-flex flex-column justify-content-end">
-        <button class="btn btn-primary" style="width: 200px" @onclick="IncrementCount">Find flights</button>
+        <button class="btn btn-primary" style="width: 200px" @onclick="SearchFlights">Find flights</button>
     </div>
 </div>
 
 <div class="row">
     <h2 class="text-center">Flights</h2>
-    <input placeholder="Loading"/>
+    @if (results == null)
+    {
+        <input placeholder="Loading" />
+    }
+    else
+    {
+        @* @for (int i = 0; i < FlightInfoStrings.Count; i++)
+        {
+            <input @bind-value="(FlightInfoStrings[i])" />
+        } *@
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Flight Code</th>
+                    <th>Airline</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Seats</th>
+                    <th>Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var flight in pagedFlights)
+                {
+                    <tr class="@(selectedFlight == flight ? "table-primary" : "")" @onclick="() => SelectFlight(flight)">
+                        <td>@flight.FlightCode</td>
+                        <td>@flight.AirLine</td>
+                        <td>@flight.From</td>
+                        <td>@flight.To</td>
+                        <td>@flight.Day</td>
+                        <td>@flight.Time</td>
+                        <td>@flight.Seats</td>
+                        <td>@flight.Cost</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <button class="btn btn-primary" @onclick="PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+            <span>Page @currentPage of @totalPages</span>
+            <button class="btn btn-primary" @onclick="NextPage" disabled="@(!HasNextPage)">Next</button>
+        </div>
+
+    }
 </div>
 
 <div class="row">
     <h2 class="text-center">Reserve</h2>
     
-    <p>Flight Code</p>
-    <input placeholder="Flight"/>
-    <p>Airline</p>
-    <input placeholder="Airline"/>
-    <p>Day</p>
-    <input placeholder="Day"/>
-    <p>Time</p>
-    <input placeholder="Time"/>
+    @if (selectedFlight != null)
+    {
+        <p>Flight Code</p>
+        <input placeholder="Flight" @bind-value="selectedFlight.FlightCode"/>
+        <p>Airline</p>
+        <input placeholder="Airline" @bind-value="selectedFlight.AirLine" />
+        <p>Day</p>
+        <input placeholder="Day" @bind-value="selectedFlight.Day" />
+        <p>Time</p>
+        <input placeholder="Time" @bind-value="selectedFlight.Time" />
+    }
+    else
+    {
+        <p>Flight Code</p>
+        <input placeholder="Flight" />
+        <p>Airline</p>
+        <input placeholder="Airline" />
+        <p>Day</p>
+        <input placeholder="Day" />
+        <p>Time</p>
+        <input placeholder="Time" />
+    }
+
     <p>Cost</p>
     <input placeholder="0"/>
     <p>Name</p>
@@ -46,17 +152,74 @@
 </div>
 
 <div class="row d-flex flex-column align-items-center justify-content-center">
-    <button class="btn btn-primary text-center" style="width: 200px;" @onclick="IncrementCount">Reserve</button>
+    <button class="btn btn-primary text-center" style="width: 200px;" @onclick="SearchFlights">Reserve</button>
     <p class="text-center">Reservation code</p>
 </div>
 
-<button class="btn btn-primary " @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary " @onclick="SearchFlights">Click me</button>
 
 @code {
+
     private int currentCount = 0;
 
-    private void IncrementCount()
+    string selectedFrom = "Any";
+    string selectedTo = "Any";
+    string selectedDay = "Any";
+
+    private List<Flight> flights;
+    private List<Flight> results;
+    // private List<string> FlightInfoStrings;
+    private Flight selectedFlight;
+
+    private int pageSize = 5;
+    private int currentPage = 1;
+    private List<Flight> pagedFlights => results.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+    private int totalPages => (int)Math.Ceiling((double)results.Count / pageSize);
+
+    private List<string> allFrom ;
+    private List<string> allTo;
+    private List<string> allDay;
+
+    private void PreviousPage()
     {
-        currentCount++;
+        if (currentPage > 1)
+        {
+            currentPage--;
+        }
+    }
+
+    private void NextPage()
+    {
+        if (currentPage < totalPages)
+        {
+            currentPage++;
+        }
+    }
+
+    private bool HasPreviousPage => currentPage > 1;
+    private bool HasNextPage => currentPage < totalPages;
+
+    private void SelectFlight(Flight selectedFlight)
+    {
+        this.selectedFlight = selectedFlight;
+    }
+
+    private async void SearchFlights()
+    {
+        results = await Tools.FilterFlights(flights, selectedFrom, selectedTo, selectedDay);
+
+        // FlightInfoStrings = results.Select(f => f.GetInfo()).ToList();
+
+        currentPage = 1;
+        StateHasChanged();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        flights = await Tools.ReadFlights("Flights.csv");
+        results = flights;
+        allFrom = flights.Select(f => f.From).Distinct().ToList();
+        allTo = flights.Select(f => f.To).Distinct().ToList();
+        allDay = flights.Select(f => f.Day).Distinct().ToList();
     }
 }

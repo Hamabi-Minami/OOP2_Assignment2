@@ -25,15 +25,30 @@ public class Flight
         this.Cost = cost;
     }
 
-    public void ToString()
+    public override string ToString()
     {
-        Console.WriteLine($"Flight Code:{this.FlightCode, -10}\t" +
-                          $"AirLine:{this.AirLine, -20}\t" +
-                          $"From:{this.From, -10}" +
-                          $"To:{this.To, -10}" +
-                          $"Day:{this.Day, -10}\t" +
-                          $"Time:{this.Time, -10}\t" +
-                          $"Seats:{this.Seats, -10}" +
-                          $"Cost:{this.Cost, -10}\t");
+
+        System.Diagnostics.Debug.WriteLine($"Flight Code:{this.FlightCode,-10}\t" +
+                          $"AirLine:{this.AirLine,-20}\t" +
+                          $"From:{this.From,-10}" +
+                          $"To:{this.To,-10}" +
+                          $"Day:{this.Day,-10}\t" +
+                          $"Time:{this.Time,-10}\t" +
+                          $"Seats:{this.Seats,-10}" +
+                          $"Cost:{this.Cost,-10}\t");
+
+        return $"Flight Code:{this.FlightCode,-10}\t" +
+                          $"AirLine:{this.AirLine,-20}\t" +
+                          $"From:{this.From,-10}" +
+                          $"To:{this.To,-10}" +
+                          $"Day:{this.Day,-10}\t" +
+                          $"Time:{this.Time,-10}\t" +
+                          $"Seats:{this.Seats,-10}" +
+                          $"Cost:{this.Cost,-10}\t";
+    }
+
+    public string GetInfo()
+    {
+        return $"{this.FlightCode},{this.AirLine},{this.From},{this.To},{this.Day},{this.Time},{this.Seats},{this.Cost}";
     }
 }
