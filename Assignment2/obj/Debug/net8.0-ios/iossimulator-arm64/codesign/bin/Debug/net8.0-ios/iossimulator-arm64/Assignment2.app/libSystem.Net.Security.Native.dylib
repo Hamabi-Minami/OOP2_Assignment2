@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/wenhanliu/projects/C#/Assignment2/Assignment2/bin/Debug/net8.0-ios/iossimulator-arm64/Assignment2.app/libSystem.Net.Security.Native.dylib

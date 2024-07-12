@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/scopedcss/bundle/Assignment2.styles.css",
+      "PackagePath": "staticwebassets/Assignment2.styles.css"
+    },
+    {
+      "Id": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/wenhanliu/projects/C#/Assignment2/Assignment2/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/staticwebassets/msbuild.Assignment2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/staticwebassets/msbuild.build.Assignment2.props",
+      "PackagePath": "build\\Assignment2.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/staticwebassets/msbuild.buildMultiTargeting.Assignment2.props",
+      "PackagePath": "buildMultiTargeting\\Assignment2.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/staticwebassets/msbuild.buildTransitive.Assignment2.props",
+      "PackagePath": "buildTransitive\\Assignment2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
