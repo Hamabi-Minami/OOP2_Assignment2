@@ -1,0 +1,199 @@
+﻿@page "/reservation"
+@using Assignment2.Models;
+@using Assignment2.Managers;
+
+<h1 class="text-center">Flight Finder</h1>
+
+<div class="row">
+    <div class="col">
+        <p>Reservation Code</p>
+
+        @if (ReservationManager.allCode == null)
+        {
+            <input placeholder="Loading" />
+        }
+        else
+        {
+            <select class="form-control" @bind="ReservationManager.selectedCode">
+                <option value="">Any</option>
+                @foreach (var reservationCode in ReservationManager.allCode)
+                {
+                    <option>@reservationCode</option>
+                }
+            </select>
+        }
+    </div>
+
+    <div class="col">
+        <p>Airline</p>
+
+        @if (ReservationManager.allAirline == null)
+        {
+            <input placeholder="Loading" />
+        }
+        else
+        {
+            <select class="form-control" @bind="ReservationManager.selectedAirline">
+                <option value="">Any</option>
+                @foreach (var Airline in ReservationManager.allAirline)
+                {
+                    <option>@Airline</option>
+                }
+            </select>
+        }
+    </div>
+
+    <div class="col">
+        <p>From</p>
+
+        @if (ReservationManager.allName == null)
+        {
+            <input placeholder="Loading" />
+        }
+        else
+        {
+            <select class="form-control" @bind="ReservationManager.selectedName">
+                <option value="">Any</option>
+                @foreach (var name in ReservationManager.allName)
+                {
+                    <option>@name</option>
+                }
+            </select>
+        }
+    </div>
+
+    <div class="col d-flex flex-column justify-content-end">
+        <button class="btn btn-primary" style="width: 200px" @onclick="SearchReservations">Find Reservations</button>
+    </div>
+
+</div>
+
+<div class="row">
+    <h2 class="text-center">Reservations</h2>
+    @if (ReservationManager.Results == null)
+    {
+        <input placeholder="Loading" />
+    }
+    else
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Reservation Code</th>
+                    <th>Flight Code</th>
+                    <th>Airline</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Seats</th>
+                    <th>Cost</th>
+                    <th>Name</th>
+                    <th>Citizenship</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reservation in ReservationManager.pagedReservations)
+                {
+                    <tr class="@(ReservationManager.SelectedReservation == reservation ? "table-primary" : "")" @onclick="() => SelectReservation(reservation)">
+                        <td>@reservation.ReservationCode</td>
+                        <td>@reservation.Flight.FlightCode</td>
+                        <td>@reservation.Flight.AirLine</td>
+                        <td>@reservation.Flight.From</td>
+                        <td>@reservation.Flight.To</td>
+                        <td>@reservation.Flight.Day</td>
+                        <td>@reservation.Flight.Time</td>
+                        <td>@reservation.Flight.Seats</td>
+                        <td>@reservation.Flight.Cost</td>
+                        <td>@reservation.Name</td>
+                        <td>@reservation.Citizenship</td>
+                        <td>@reservation.Status</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pagination" style="align-content: center">
+            <button class="btn btn-primary" @onclick="ReservationManager.PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+            <span>Page @ReservationManager.currentPage of @ReservationManager.totalPages</span>
+            <button class="btn btn-primary" @onclick="ReservationManager.NextPage" disabled="@(!HasNextPage)">Next</button>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <h2 class="text-center">Reserve</h2>
+
+    @if (ReservationManager.SelectedReservation != null)
+    {
+        <p>Reservation Code</p>
+        <input placeholder="Reservation Code" @bind-value="ReservationManager.SelectedReservation.ReservationCode" disabled />
+        <p>Flight Code</p>
+        <input placeholder="Flight" @bind-value="ReservationManager.SelectedReservation.Flight.FlightCode" disabled />
+        <p>Airline</p>
+        <input placeholder="Airline" @bind-value="ReservationManager.SelectedReservation.Flight.AirLine" disabled />
+        <p>Cost</p>
+        <input placeholder="0" @bind-value="ReservationManager.SelectedReservation.Flight.Cost" disabled />
+        <p>Name</p>
+        <input placeholder="0" @bind-value="ReservationManager.SelectedReservation.Name"/>
+        <p>Citizenship</p>
+        <input placeholder="0" @bind-value="ReservationManager.SelectedReservation.Citizenship"/>
+        <p>Status</p>
+        <select class="form-control" @bind="ReservationManager.SelectedReservation.Status">
+            @foreach (var option in statusOptions)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+    }
+    else
+    {
+        <p>Reservation Code</p>
+        <input placeholder="Reservation Code" disabled />
+        <p>Flight Code</p>
+        <input placeholder="Flight Code" disabled />
+        <p>Airline</p>
+        <input placeholder="Airline" disabled />
+        <p>Day</p>
+        <input placeholder="Day" disabled />
+        <p>Time</p>
+        <input placeholder="Time" disabled />
+        <p>Cost</p>
+        <input placeholder="0" disabled />
+        <p>Name</p>
+        <input placeholder="0" disabled />
+        <p>Citizenship</p>
+        <input placeholder="0" disabled />
+        <p>Status</p>
+        <input placeholder="0" disabled />
+    }
+</div>
+
+<div class="row d-flex flex-column align-items-center justify-content-center">
+    <button class="btn btn-primary text-center" style="width: 200px;" @onclick="Save">Save</button>
+</div>
+
+@code {
+
+    private string[] statusOptions = new[] { "Active", "InActive" };
+    private bool HasPreviousPage => ReservationManager.currentPage > 1;
+    private bool HasNextPage => ReservationManager.currentPage < ReservationManager.totalPages;
+
+    private async void SearchReservations()
+    {
+        await ReservationManager.FilterReservations();
+        StateHasChanged();
+    }
+
+    private void SelectReservation(Reservation reservation)
+    {
+        ReservationManager.SelectedReservation = reservation;
+    }
+
+    private async void Save()
+    {
+        await ReservationManager.SaveReservations();
+        StateHasChanged();
+    }
+}
