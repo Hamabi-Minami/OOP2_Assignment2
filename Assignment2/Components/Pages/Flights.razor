@@ -100,10 +100,12 @@
             </tbody>
         </table>
 
-        <div class="pagination" style="align-content: center">
-            <button class="btn btn-primary" @onclick="FlightsManager.PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
-            <span>Page @FlightsManager.currentPage of @FlightsManager.totalPages</span>
-            <button class="btn btn-primary" @onclick="FlightsManager.NextPage" disabled="@(!HasNextPage)">Next</button>
+        <div class="pagination d-flex align-items-center justify-content-end" style="align-content: center">
+            <button class="btn btn-primary me-2" @onclick="FlightsManager.PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+            <span class="me-2">Page @FlightsManager.currentPage of @FlightsManager.totalPages</span>
+            <button class="btn btn-primary me-2" @onclick="FlightsManager.NextPage" disabled="@(!HasNextPage)">Next</button>
+            <button class="btn btn-primary me-2" @onclick="()=>JumpPage(pageNumber)">Jump To</button>
+            <input class="form-control me-2" style="width: 50px; height: 30px; padding: 2px;" placeholder="@FlightsManager.currentPage" @bind-value="@pageNumber" />
         </div>
     }
 </div>
@@ -146,12 +148,17 @@
 
 <div class="row d-flex flex-column align-items-center justify-content-center">
     <button class="btn btn-primary text-center" style="width: 200px;" @onclick="ReserveFlight">Reserve</button>
+    <p class="text-center">@reservationCode</p>
 </div>
 
 @code {
 
-    private string currentNamm;
-    private string currentCitizenship;
+    private static string currentNamm;
+    private static string currentCitizenship;
+
+    private static int pageNumber = 0;
+
+    private static string reservationCode = "Reservation Code";
 
     private bool HasPreviousPage => FlightsManager.currentPage > 1;
     private bool HasNextPage => FlightsManager.currentPage < FlightsManager.totalPages;
@@ -165,6 +172,14 @@
     {
         await FlightsManager.FilterFlights();
         StateHasChanged();
+    }
+
+    private void JumpPage(int pageNumber)
+    {
+        if (pageNumber > 0 && pageNumber <= FlightsManager.totalPages)
+        {
+            FlightsManager.currentPage = pageNumber;
+        }
     }
 
     private async void ReserveFlight()
@@ -187,7 +202,7 @@
                 throw new Exception("The citizenship field is empty!");
             }
             // reserve
-            ReservationManager.MakeReservation(FlightsManager.SelectedFlight, currentNamm, currentCitizenship);
+            reservationCode = ReservationManager.MakeReservation(FlightsManager.SelectedFlight, currentNamm, currentCitizenship);
         }
         catch (Exception e)
         {

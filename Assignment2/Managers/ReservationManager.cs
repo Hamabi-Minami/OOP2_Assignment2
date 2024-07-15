@@ -25,7 +25,7 @@ namespace Assignment2.Managers
         public static string selectedName = "";
 
         // make pagenations
-        public static int currentCount = 0;
+        //public static int currentCount = 0;
         public static int pageSize = 10;
         public static int currentPage = 1;
         public static List<Reservation> pagedReservations => Results.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
@@ -66,7 +66,7 @@ namespace Assignment2.Managers
             return $"{letter}{number}";
         }
 
-        public static void MakeReservation(Flight selectedFlight, string name, string citizenship)
+        public static string MakeReservation(Flight selectedFlight, string name, string citizenship)
         {
             var reservation = Reservations.Where(x => x.Flight.Seats == selectedFlight.Seats && x.Flight.FlightCode == selectedFlight.FlightCode);
 
@@ -75,7 +75,10 @@ namespace Assignment2.Managers
                 throw new Exception("This seat is taken!");
             }
 
-            Reservations.Add(new Reservation(selectedFlight, name, citizenship, GenerateReservationCode()));
+            string reservationCode = GenerateReservationCode();
+            Reservations.Add(new Reservation(selectedFlight, name, citizenship, reservationCode));
+
+            return reservationCode;
         }
 
         public static async Task<List<Reservation>> FilterReservations()

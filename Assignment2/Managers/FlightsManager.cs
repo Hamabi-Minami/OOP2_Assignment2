@@ -26,7 +26,7 @@ namespace Assignment2.Managers
         public static string selectedDay = "";
 
         // make pagenations
-        public static int currentCount = 0;
+        //public static int currentCount = 0;
         public static int pageSize = 10;
         public static int currentPage = 1;
         public static List<Flight> pagedFlights => Results.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();

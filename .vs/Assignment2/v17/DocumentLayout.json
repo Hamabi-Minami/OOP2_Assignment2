@@ -11,20 +11,20 @@
       "RelativeMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|solutionrelative:assignment2\\managers\\reservationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|c:\\users\\12206\\desktop\\oop2 assignments\\oop2_assignment2\\assignment2\\managers\\flightsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|solutionrelative:assignment2\\managers\\flightsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|c:\\users\\12206\\desktop\\oop2 assignments\\oop2_assignment2\\assignment2\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|solutionrelative:assignment2\\components\\pages\\flights.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|c:\\users\\12206\\desktop\\oop2 assignments\\oop2_assignment2\\assignment2\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|solutionrelative:assignment2\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|c:\\users\\12206\\desktop\\oop2 assignments\\oop2_assignment2\\assignment2\\managers\\flightsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|solutionrelative:assignment2\\managers\\flightsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|c:\\users\\12206\\desktop\\oop2 assignments\\oop2_assignment2\\assignment2\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|solutionrelative:assignment2\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|c:\\users\\12206\\desktop\\oop2 assignments\\oop2_assignment2\\assignment2\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|solutionrelative:assignment2\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FCFC2226-7E0A-4772-B47E-3EB88E6AB3D3}|Assignment2\\Assignment2.csproj|c:\\users\\12206\\desktop\\oop2 assignments\\oop2_assignment2\\assignment2\\models\\flight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Assignment2\\Components\\Layout\\NavMenu.razor",
@@ -50,7 +54,8 @@
               "RelativeToolTip": "Assignment2\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-15T01:14:15.702Z"
+              "WhenOpened": "2024-07-15T01:14:15.702Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,13 +65,14 @@
               "RelativeDocumentMoniker": "Assignment2\\Models\\Flight.cs",
               "ToolTip": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Models\\Flight.cs",
               "RelativeToolTip": "Assignment2\\Models\\Flight.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAwwB4AAAAqAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAA/wB4AAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T06:14:40.721Z"
+              "WhenOpened": "2024-07-13T06:14:40.721Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Reservation.cs",
               "DocumentMoniker": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Models\\Reservation.cs",
               "RelativeDocumentMoniker": "Assignment2\\Models\\Reservation.cs",
@@ -74,7 +80,8 @@
               "RelativeToolTip": "Assignment2\\Models\\Reservation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAABwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T04:41:53.777Z"
+              "WhenOpened": "2024-07-13T04:41:53.777Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -84,7 +91,7 @@
               "RelativeDocumentMoniker": "Assignment2\\Components\\Pages\\Reservations.razor",
               "ToolTip": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Components\\Pages\\Reservations.razor",
               "RelativeToolTip": "Assignment2\\Components\\Pages\\Reservations.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAAAAAA",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAAAHkAAAB+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-13T05:56:03.289Z",
               "EditorCaption": ""
@@ -97,35 +104,36 @@
               "RelativeDocumentMoniker": "Assignment2\\Managers\\ReservationManager.cs",
               "ToolTip": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Managers\\ReservationManager.cs",
               "RelativeToolTip": "Assignment2\\Managers\\ReservationManager.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAwwEYAAACSAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-13T06:40:57.457Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FlightsManager.cs",
               "DocumentMoniker": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Managers\\FlightsManager.cs",
               "RelativeDocumentMoniker": "Assignment2\\Managers\\FlightsManager.cs",
               "ToolTip": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Managers\\FlightsManager.cs",
               "RelativeToolTip": "Assignment2\\Managers\\FlightsManager.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAvwCAAAABcAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAASwCAAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-13T06:44:29.359Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Flights.razor",
               "DocumentMoniker": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Components\\Pages\\Flights.razor",
               "RelativeDocumentMoniker": "Assignment2\\Components\\Pages\\Flights.razor",
               "ToolTip": "C:\\Users\\12206\\Desktop\\OOP2 assignments\\OOP2_Assignment2\\Assignment2\\Components\\Pages\\Flights.razor",
               "RelativeToolTip": "Assignment2\\Components\\Pages\\Flights.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAARAAAA",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAAALAAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-12T16:47:03.379Z"
+              "WhenOpened": "2024-07-12T16:47:03.379Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -7,8 +7,8 @@
 <div class="row">
     <div class="col">
         <p>Reservation Code</p>
-
-        @if (ReservationManager.allCode == null)
+        <input placeholder="Any" @bind="ReservationManager.selectedCode" />
+        @* @if (ReservationManager.allCode == null)
         {
             <input placeholder="Loading" />
         }
@@ -21,13 +21,13 @@
                     <option>@reservationCode</option>
                 }
             </select>
-        }
+        } *@
     </div>
 
     <div class="col">
         <p>Airline</p>
-
-        @if (ReservationManager.allAirline == null)
+        <input placeholder="Any" @bind="ReservationManager.selectedAirline" />
+        @* @if (ReservationManager.allAirline == null)
         {
             <input placeholder="Loading" />
         }
@@ -40,13 +40,13 @@
                     <option>@Airline</option>
                 }
             </select>
-        }
+        } *@
     </div>
 
     <div class="col">
         <p>Name</p>
-
-        @if (ReservationManager.allName == null)
+        <input placeholder="Any" @bind="ReservationManager.selectedName" />
+        @* @if (ReservationManager.allName == null)
         {
             <input placeholder="Loading" />
         }
@@ -59,7 +59,7 @@
                     <option>@name</option>
                 }
             </select>
-        }
+        } *@
     </div>
 
     <div class="col d-flex flex-column justify-content-end">
@@ -114,10 +114,12 @@
             </tbody>
         </table>
 
-        <div class="pagination" style="align-content: center">
-            <button class="btn btn-primary" @onclick="ReservationManager.PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
-            <span>Page @ReservationManager.currentPage of @ReservationManager.totalPages</span>
-            <button class="btn btn-primary" @onclick="ReservationManager.NextPage" disabled="@(!HasNextPage)">Next</button>
+        <div class="pagination d-flex align-items-center justify-content-end" style="align-content: center">
+            <button class="btn btn-primary me-2" @onclick="ReservationManager.PreviousPage" disabled="@(!HasPreviousPage)">Previous</button>
+            <span class="me-2">Page @ReservationManager.currentPage of @ReservationManager.totalPages</span>
+            <button class="btn btn-primary me-2" @onclick="ReservationManager.NextPage" disabled="@(!HasNextPage)">Next</button>
+            <button class="btn btn-primary me-2" @onclick="()=>JumpPage(pageNumber)">Jump To</button>
+            <input class="form-control me-2" style="width: 50px; height: 30px; padding: 2px;" placeholder="@ReservationManager.currentPage" @bind-value="@pageNumber" />
         </div>
     }
 </div>
@@ -179,6 +181,7 @@
     private string[] statusOptions = new[] { "Active", "InActive" };
     private bool HasPreviousPage => ReservationManager.currentPage > 1;
     private bool HasNextPage => ReservationManager.currentPage < ReservationManager.totalPages;
+    private static int pageNumber = 0;
 
     private async void SearchReservations()
     {
@@ -189,6 +192,14 @@
     private void SelectReservation(Reservation reservation)
     {
         ReservationManager.SelectedReservation = reservation;
+    }
+
+    private void JumpPage(int pageNumber)
+    {
+        if (pageNumber > 0 && pageNumber <= ReservationManager.totalPages)
+        {
+            ReservationManager.currentPage = pageNumber;
+        }
     }
 
     private async void Save()
