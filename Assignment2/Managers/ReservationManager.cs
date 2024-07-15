@@ -68,7 +68,7 @@ namespace Assignment2.Managers
 
         public static void MakeReservation(Flight selectedFlight, string name, string citizenship)
         {
-            var reservation = Reservations.Where(x => x.Flight.Seats == selectedFlight.Seats);
+            var reservation = Reservations.Where(x => x.Flight.Seats == selectedFlight.Seats && x.Flight.FlightCode == selectedFlight.FlightCode);
 
             if (reservation.Count()!=0)
             {
