@@ -47,7 +47,7 @@ public class Flight
                           $"Cost:{this.Cost,-10}\t";
     }
 
-    public string GetInfo()
+    public string ToCsvString()
     {
         return $"{this.FlightCode},{this.AirLine},{this.From},{this.To},{this.Day},{this.Time},{this.Seats},{this.Cost}";
     }
